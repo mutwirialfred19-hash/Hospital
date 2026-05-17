@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "Appointment": {
+      "title": "Appointment",
+      "description": "Medical appointment booking record",
+      "type": "object",
+      "properties": {
+        "doctorId": { "type": "string" },
+        "patientUid": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "time": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "completed", "cancelled"] },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["doctorId", "patientUid", "date", "time", "status", "createdAt", "updatedAt"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Private profile for patients",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "bloodType": { "type": "string" },
+        "medicalHistory": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["fullName", "email", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/appointments/{appointmentId}": {
+      "schema": "Appointment",
+      "description": "Store patient appointments"
+    },
+    "/users/{userId}/private/profile": {
+      "schema": "UserProfile",
+      "description": "Personal health information"
+    }
+  }
+}

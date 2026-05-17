@@ -1,0 +1,8 @@
+{
+  "name": "MediTrust Hospital",
+  "description": "A modern, trustworthy healthcare platform for booking appointments, finding doctors, and accessing medical services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
